@@ -1,16 +1,11 @@
-import React from "react"
+import React, { Component } from "react"
 import PropTypes from "prop-types"
-class HelloWorld extends React.Component {
+class Index extends Component {
   render () {
     return (
-      <React.StrictMode>
-        Greeting: {this.props.greeting}
-      </React.StrictMode>
-    );
+      <div>Index</div>
+    )
   }
 }
 
-HelloWorld.propTypes = {
-  greeting: PropTypes.string
-};
-export default HelloWorld
+export default Index
