@@ -1,9 +1,11 @@
-import React from 'react';
-import { withStyles, Button, Menu, MenuItem, ListItemText } from '@material-ui/core'
+import React from 'react'
+
+import { withStyles } from '@material-ui/core/styles'
+import { Button, Menu, MenuItem, ListItemText } from '@material-ui/core'
 
 const StyledMenu = withStyles({
   paper: {
-    border: '1px solid #d3d4d5',
+    border: '1px solid #d3d4d5'
   },
 })((props) => (
   <Menu
@@ -11,15 +13,15 @@ const StyledMenu = withStyles({
     getContentAnchorEl={null}
     anchorOrigin={{
       vertical: 'bottom',
-      horizontal: 'center',
+      horizontal: 'center'
     }}
     transformOrigin={{
       vertical: 'top',
-      horizontal: 'center',
+      horizontal: 'center'
     }}
     {...props}
   />
-));
+))
 
 const StyledMenuItem = withStyles((theme) => ({
   root: {
@@ -27,32 +29,30 @@ const StyledMenuItem = withStyles((theme) => ({
       backgroundColor: theme.palette.primary.main,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
         color: theme.palette.common.white,
-      },
-    },
-  },
-}))(MenuItem);
+      }
+    }
+  }
+}))(MenuItem)
 
-const RightSideMenu = (props) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+const NavBarMenu = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null)
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(event.currentTarget)
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
-    <div>
+    <>
       <Button
         aria-controls="customized-menu"
         aria-haspopup="true"
-        variant="contained"
-        color="primary"
         onClick={handleClick}
       >
-        {props.email}
+        Open Menu
       </Button>
       <StyledMenu
         id="customized-menu"
@@ -62,17 +62,17 @@ const RightSideMenu = (props) => {
         onClose={handleClose}
       >
         <StyledMenuItem>
-          <ListItemText primary="로그아웃" />
+          <ListItemText primary="Sent mail" />
         </StyledMenuItem>
-        {/* <StyledMenuItem>
+        <StyledMenuItem>
           <ListItemText primary="Drafts" />
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemText primary="Inbox" />
-        </StyledMenuItem> */}
+        </StyledMenuItem>
       </StyledMenu>
-    </div>
-  );
+    </>
+  )
 }
 
-export default RightSideMenu
+export default NavBarMenu

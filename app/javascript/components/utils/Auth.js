@@ -13,10 +13,7 @@ class AuthProvider extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loggedIn: {
-        isAuth: false,
-        email: '',
-      },
+      loggedIn: { isAuth: false, email: '' },
     }
   }
 
@@ -44,7 +41,7 @@ class AuthProvider extends Component {
       .post('/api/v1/users/auth', { user: { ...user } }, { withCredentials: true })
       .then((res) => {
         this.setState({ isAuth: true, email: res.data.email })
-        this.props.history.push('/')
+        window.history.go(0)
       })
       .catch((err) => console.log(err))
   }
@@ -58,18 +55,18 @@ class AuthProvider extends Component {
       .post('/api/v1/users/regist', { user: { ...user } }, { withCredentials: true })
       .then((res) => {
         this.setState({ isAuth: true })
-        this.props.history.push('/')
+        window.history.go(0)
       })
       .catch((err) => console.log(err))
   }
 
   // 로그아웃
-  logout = (user, token, e) => {
+  logout = (e) => {
     e.preventDefault();
     
     Axios()
     axios
-      .post('/api/v1/users/auth/logout')
+      .delete('/api/v1/users/auth/logout')
       .then((res) => {
         this.setState(prevState => ({
           loggedIn: {
@@ -78,19 +75,24 @@ class AuthProvider extends Component {
             email: ''
           }
         }))
+        window.history.go(0)
       })
       .catch((err) => console.log(err))
   }
 
+  redirect = () => {
+
+  }
+
   render() {
-    console.log(this.state.loggedIn)
     return (
       <AuthContext.Provider
         value={{
           isAuth: this.state.loggedIn.isAuth,
           email: this.state.loggedIn.email,
           login: this.login,
-          regist: this.regist
+          regist: this.regist,
+          logout: this.logout
         }}
       >
         {this.props.children}
