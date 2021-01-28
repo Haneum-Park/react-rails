@@ -1,8 +1,8 @@
-import React, { Component, useState } from "react"
+import React, { useState } from "react"
 
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle } from "@material-ui/core"
 
-import { AuthConsumer } from '../utils/Auth'
+import { AuthConsumer } from '../../utils/Auth'
 
 const Regist = (props) => {
   const [user, setUser] = useState({ name: '', email: '', password: '' })

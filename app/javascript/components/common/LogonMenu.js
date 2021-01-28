@@ -1,8 +1,8 @@
 import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles'
-import { Button, Menu, MenuItem, ListItemText, ListItemIcon } from '@material-ui/core'
+import { Button, Menu, MenuItem, ListItemText } from '@material-ui/core'
 
-import { AuthConsumer } from '../utils/Auth'
+import { AuthConsumer } from '../../utils/Auth'
 
 const useStyles = makeStyles((theme) => ({
   root: {

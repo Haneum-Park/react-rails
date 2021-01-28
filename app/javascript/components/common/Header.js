@@ -1,19 +1,16 @@
 'use strict'
 
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import PropTypes from "prop-types"
+import React from "react"
 
 import { makeStyles } from '@material-ui/core/styles'
-import { AppBar, Toolbar, Typography, Button, IconButton } from "@material-ui/core"
-import MenuIcon from '@material-ui/icons/Menu'
+import { AppBar, Toolbar, Typography } from "@material-ui/core"
 
 import Login from './Login'
 import Regist from './Regist'
 import NavBarMenu from './NavBarMenu'
 import LeftSideMenu from './LeftSideMenu'
 import LogonMenu from './LogonMenu'
-import { AuthConsumer } from '../utils/Auth'
+import { AuthConsumer } from '../../utils/Auth'
 
 const useStyles = makeStyles((theme) => ({
   root: {

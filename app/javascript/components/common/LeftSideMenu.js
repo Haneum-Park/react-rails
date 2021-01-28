@@ -1,6 +1,5 @@
 import React  from 'react'
 
-import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import { Drawer, Button, List, Divider, ListItem, ListItemText, IconButton } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'

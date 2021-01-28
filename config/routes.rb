@@ -14,4 +14,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  match '*path', to: 'home#index', via: [:get, :post]
+  # get '/about/intro', to: 'home#index'
 end
